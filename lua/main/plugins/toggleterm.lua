@@ -21,5 +21,5 @@ return {
             winblend = 10,
         },
     },
-    keys = { [[<C-\>]], ":ToggleTerm<CR>", mode = { "n" } },
+    keys = { { [[<C-\>]], ":ToggleTerm<CR>", mode = { "n" } } },
 }

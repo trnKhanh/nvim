@@ -41,12 +41,12 @@ return {
             gitsigns = true,
             nvimtree = true,
             treesitter = true,
-            notify = false,
+            notify = true,
             mini = {
                 enabled = true,
                 indentscope_color = "",
             },
         },
     },
-    config = function(_, opts) vim.cmd([[colorscheme catppuccin]]) end,
+    config = function() vim.cmd.colorscheme("catppuccin") end,
 }

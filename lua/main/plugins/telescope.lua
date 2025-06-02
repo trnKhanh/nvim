@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    opts = function(_, opts)
+    opts = function()
         local actions = require("telescope.actions")
 
         return {

@@ -122,6 +122,7 @@ return {
         vim.diagnostic.config({
             severity_sort = true,
             signs = {
+                priority = 10,
                 text = {
                     [vim.diagnostic.severity.ERROR] = "",
                     [vim.diagnostic.severity.WARN] = "",
@@ -130,7 +131,7 @@ return {
                 },
             },
             float = {
-                scope = "cursor",
+                scope = "line",
                 source = true,
                 focusable = false,
                 style = "minimal",
@@ -143,7 +144,7 @@ return {
         -- Set keymaps on 'LspAttach' event
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
-                local opts = { buffer = args.buf, noremap = true, silent = true, nowait = true }
+                local opts = { buffer = args.buf, noremap = true, silent = true }
                 local telescope_ok, telescope = pcall(require, "telescope.builtin")
 
                 vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
@@ -161,12 +162,11 @@ return {
 
                 if telescope_ok then
                     vim.keymap.set("n", "gd", function() telescope.lsp_definitions() end, opts)
-                    vim.keymap.set("n", "gr", function() telescope.lsp_references() end, opts)
+                    vim.keymap.set("n", "grr", function() telescope.lsp_references() end, opts)
                     vim.keymap.set("n", "gi", function() telescope.lsp_implementations() end, opts)
-                    vim.keymap.set("n", "<leader>l", function() telescope.diagnostics() end, opts)
                 else
                     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+                    vim.keymap.set("n", "grr", function() vim.lsp.buf.references() end, opts)
                     vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
                 end
 

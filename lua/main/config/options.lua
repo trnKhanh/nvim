@@ -35,7 +35,7 @@ vim.opt.relativenumber = true
 -- Width of number column
 vim.opt.numberwidth = 4
 -- Turn on sign columns
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 -- How to format the status column
 vim.opt.statuscolumn = ""
 
