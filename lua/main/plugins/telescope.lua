@@ -1,14 +1,14 @@
 return {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
-    dependencies = { 
-        'nvim-lua/plenary.nvim',
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     opts = function(_, opts)
         local actions = require("telescope.actions")
 
-        return { 
+        return {
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
@@ -73,8 +73,8 @@ return {
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                         ["?"] = actions.which_key,
-                    }
-                }
+                    },
+                },
             },
             extensions = {
                 fzf = {
@@ -82,28 +82,23 @@ return {
                     override_generic_sorter = true,
                     override_file_sorter = true,
                     case_mode = "smart_case",
-                }
-            }
+                },
+            },
         }
     end,
     config = function(_, opts)
-        local telescope = require('telescope')
+        local telescope = require("telescope")
         telescope.setup(opts)
-        telescope.load_extension('fzf')
+        telescope.load_extension("fzf")
     end,
-    keys = { 
+    keys = {
         -- Telescope popup windows
         { "<leader>f", ":Telescope find_files<CR>", mode = { "n" } },
         { "<leader>t", ":Telescope live_grep<CR>", mode = { "n" } },
         { "<leader>l", ":Telescope diagnostics<CR>", mode = { "n" } },
-        -- LSP
-        { "gr", ":Telescope lsp_references<CR>", mode = { "n" } },
-        { "gd", ":Telescope lsp_definitions<CR>", mode = { "n" } },
-        { "gi", ":Telescope lsp_implementations<CR>", mode = { "n" } },
         -- Git popup windows
         { "<leader>gb", ":Telescope git_branches<CR>", mode = { "n" } },
         { "<leader>gc", ":Telescope git_commits<CR>", mode = { "n" } },
         { "<leader>gs", ":Telescope git_status<CR>", mode = { "n" } },
-        
     },
 }

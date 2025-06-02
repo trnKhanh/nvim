@@ -1,0 +1,25 @@
+return {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+        size = 10,
+        open_mapping = [[<c-\>]],
+        hide_numbers = true,
+        shade_filetypes = {},
+        shade_terminals = true,
+        shading_factor = 2,
+        start_in_insert = true,
+        insert_mappings = true,
+        persist_size = true,
+        persist_mode = false,
+        direction = "float",
+        close_on_exit = true,
+        shell = vim.o.shell,
+        autoscroll = false,
+        float_opts = {
+            border = "curved",
+            winblend = 10,
+        },
+    },
+    keys = { [[<C-\>]], ":ToggleTerm<CR>", mode = { "n" } },
+}
