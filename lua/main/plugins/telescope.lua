@@ -13,6 +13,17 @@ return {
                 prompt_prefix = " ",
                 selection_caret = " ",
                 path_display = { "smart" },
+                vimgrep_arguments = {
+                    "rg",
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--smart-case",
+                    "--hidden",
+                },
+                file_ignore_patterns = { ".git/" },
                 mappings = {
                     i = {
                         ["<C-c>"] = actions.close,
@@ -93,8 +104,8 @@ return {
     end,
     keys = {
         -- Telescope popup windows
-        { "<leader>f", ":Telescope find_files<CR>", mode = { "n" } },
-        { "<leader>t", ":Telescope live_grep<CR>", mode = { "n" } },
+        { "<leader>f", ":Telescope find_files hidden=true<CR>", mode = { "n" } },
+        { "<leader>t", ":Telescope live_grep hidden=true<CR>", mode = { "n" } },
         { "<leader>l", ":Telescope diagnostics<CR>", mode = { "n" } },
         -- Git popup windows
         { "<leader>gb", ":Telescope git_branches<CR>", mode = { "n" } },
