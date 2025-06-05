@@ -55,6 +55,8 @@ return {
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                         ["<C-l>"] = actions.complete_tag,
                         ["<C-_>"] = actions.which_key,
+                        ["<C-q>"] = actions.send_to_qflist,
+                        ["<C-S-q>"] = actions.send_selected_to_qflist,
                     },
                     n = {
                         ["<esc>"] = actions.close,
@@ -84,6 +86,11 @@ return {
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                         ["?"] = actions.which_key,
+
+                        ["<C-q>"] = actions.send_to_qflist,
+                        ["<C-S-q>"] = actions.send_selected_to_qflist,
+                        -- ["<C-s>w"] = actions.insert_original_cword,
+                        -- ["<C-s>W"] = actions.insert_original_cWORD,
                     },
                 },
             },

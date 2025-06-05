@@ -181,7 +181,7 @@ vim.opt.wrapmargin = 0
 -- BRACKET --
 -------------
 -- Briefly show the matching bracket when a bracket is inserted
-vim.opt.showmatch = true
+vim.opt.showmatch = false
 -- Time to show the matching bracket (in tenths of a second)
 vim.opt.matchtime = 2
 

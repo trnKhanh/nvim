@@ -5,12 +5,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -----------------------
--- WINDOW NAVIGATION --
+-- QUICKFIX --
 -----------------------
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<C-j>", ":cnext<CR>", opts)
+vim.keymap.set("n", "<C-k>", ":cprev<CR>", opts)
+vim.keymap.set("n", "<leader>j", ":lnext<CR>", opts)
+vim.keymap.set("n", "<leader>k", ":lprev<CR>", opts)
 
 -------------------
 -- WINDOW RESIZE --
@@ -23,8 +23,8 @@ vim.keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 -----------------------
 -- BUFFER NAVIGATION --
 -----------------------
-vim.keymap.set("n", "<C-L>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<C-H>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<C-S-l>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<C-S-h>", ":bprevious<CR>", opts)
 
 ------------------------
 -- VISUAL MODE INDENT --
@@ -33,8 +33,8 @@ vim.keymap.set("n", "<C-H>", ":bprevious<CR>", opts)
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 -- Move lines up and down in visual mode
-vim.keymap.set({ "x", "v" }, "J", ":move '>+1<CR>gv-gv", opts)
-vim.keymap.set({ "x", "v" }, "K", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set({ "x", "v" }, "<S-j>", ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set({ "x", "v" }, "<S-k>", ":move '<-2<CR>gv-gv", opts)
 
 ------------
 -- SEARCH --
