@@ -2,6 +2,11 @@ local lsp_servers = {
     "lua_ls",
     "pyright",
     "clangd",
+    "vtsls",
+    "jsonls",
+    "html",
+    "cssls",
+    "tailwindcss",
 }
 
 return {
