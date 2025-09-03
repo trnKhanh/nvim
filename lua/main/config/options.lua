@@ -222,6 +222,11 @@ vim.opt.undolevels = 1000
 -- Save the whole buffer for undo when reloading it (not sure what this means)
 vim.opt.undoreload = 10000
 
+-----------
+-- NETRW --
+-----------
+vim.g.netrw_keepdir = 0
+
 ----------
 -- MISC --
 ----------
