@@ -36,7 +36,7 @@ return {
         })
 
         -- Loop through all LSP servers to load manual configs if available
-        for s in vim.iter(lsp_servers) do
+        for _, s in ipairs(lsp_servers) do
             local require_ok, config_opts = pcall(require, "main.plugins.lsp.settings." .. s)
             if require_ok then vim.lsp.config(s, config_opts) end
         end
