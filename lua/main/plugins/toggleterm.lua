@@ -3,7 +3,7 @@ return {
     version = "*",
     opts = {
         size = 10,
-        open_mapping = [[<c-\>]],
+        open_mapping = [[<C-S-\>]],
         hide_numbers = true,
         shade_filetypes = {},
         shade_terminals = true,
@@ -21,5 +21,5 @@ return {
             winblend = 10,
         },
     },
-    keys = { { [[<C-\>]], ":ToggleTerm<CR>", mode = { "n" } } },
+    keys = { { [[<C-S-\>]], ":ToggleTerm<CR>", mode = { "n" } } },
 }
