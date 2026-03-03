@@ -9,14 +9,14 @@ return {
         temperature = 0.1,
         window = {
             layout = "vertical",
-            title = "🤖 AI Assistant",
+            title = "󰭹 AI Chat",
             width = 0.5,
         },
 
         headers = {
-            user = "👤 You",
-            assistant = "🤖 Copilot",
-            tool = "🔧 Tool",
+            user = " You",
+            assistant = " Copilot",
+            tool = " Tool",
         },
 
         separator = "━━",
@@ -35,8 +35,9 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "<C-S-c>", ":CopilotChat<CR>", { noremap = true, silent = true })
-
         require("CopilotChat").setup(opts)
     end,
+    keys = {
+        { "<C-S-c>", ":CopilotChatToggle<CR>" },
+    },
 }
