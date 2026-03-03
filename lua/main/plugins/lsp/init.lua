@@ -7,6 +7,7 @@ local lsp_servers = {
     "html",
     "cssls",
     "tailwindcss",
+    "taplo",
 }
 
 return {
