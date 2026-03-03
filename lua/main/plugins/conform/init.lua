@@ -24,7 +24,7 @@ end
 return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    opts = function()
+    config = function(_, opts)
         local formatter_names = {}
         for _, v in pairs(formatters_by_ft) do
             table.insert(formatter_names, v)
@@ -33,16 +33,19 @@ return {
 
         local formatters = {}
         for _, formatter_name in ipairs(formatter_names) do
-            local opts_ok, opts = pcall(require, "main.plugins.conform.settings." .. formatter_name)
-            if opts_ok then formatters = vim.tbl_deep_extend("force", formatters, { [formatter_name] = opts }) end
+            local formatter_opts_ok, formatter_opts = pcall(require, "main.plugins.conform.settings." .. formatter_name)
+            if formatter_opts_ok then
+                formatters = vim.tbl_deep_extend("force", formatters, { [formatter_name] = formatter_opts })
+            end
         end
 
-        return {
+        opts = {
             formatters_by_ft = formatters_by_ft,
             formatters = formatters,
             default_format_opts = {
                 lsp_format = "fallback",
             },
         }
+        require("conform").setup(opts)
     end,
 }
