@@ -1,6 +1,5 @@
 local lsp_servers = {
     "lua_ls",
-    "pyright",
     "clangd",
     "vtsls",
     "jsonls",
@@ -8,6 +7,8 @@ local lsp_servers = {
     "cssls",
     "tailwindcss",
     "taplo",
+    "pyrefly",
+    -- "pyright",
 }
 
 return {
@@ -161,9 +162,9 @@ return {
 
                 local conform_ok, conform = pcall(require, "conform")
                 if conform_ok then
-                    vim.keymap.set("n", "gf", function() conform.format({ bufnr = 0, async = true }) end, opts)
+                    vim.keymap.set("n", "gF", function() conform.format({ bufnr = 0, async = true }) end, opts)
                 else
-                    vim.keymap.set("n", "gf", function() vim.lsp.buf.format() end, opts)
+                    vim.keymap.set("n", "gF", function() vim.lsp.buf.format() end, opts)
                 end
 
                 if telescope_ok then
