@@ -1,6 +1,6 @@
 local formatters_by_ft = {
     lua = { "stylua" },
-    python = { "isort", "black" },
+    python = { "ruff", "ruff_format" },
     javascript = { "prettier" },
     json = { "prettier" },
     html = { "prettier" },

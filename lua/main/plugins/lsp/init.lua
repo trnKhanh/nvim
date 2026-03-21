@@ -7,8 +7,8 @@ local lsp_servers = {
     "cssls",
     "tailwindcss",
     "taplo",
-    "pyrefly",
-    -- "pyright",
+    "ruff",
+    "basedpyright",
 }
 
 return {
